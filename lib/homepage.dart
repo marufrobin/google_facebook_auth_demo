@@ -1,24 +1,54 @@
 import 'package:flutter/material.dart';
+import 'package:google_facebook_auth_demo/model/artists_bio.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  HomePage({Key? key}) : super(key: key);
+  List<ArtistsBio> artistData = ArtistsBio.artistsBio();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blueGrey,
       body: SafeArea(
-        child: Container(
-          padding: EdgeInsets.all(16),
-          color: Colors.cyan,
-          child: GridView.builder(
-            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 200,
-                childAspectRatio: 0.8,
-                crossAxisSpacing: 16,
-                mainAxisSpacing: 20),
-            itemBuilder: (context, index) => Container(
-              color: Colors.redAccent,
+        child: GridView.count(
+          crossAxisCount: 2,
+          children: List.generate(
+            artistData.length,
+            (index) => GestureDetector(
+              onTap: () {},
+              child: Container(
+                margin: EdgeInsets.all(8),
+                child: Stack(children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.all(Radius.circular(16)),
+                    child: Image.asset(
+                      "${artistData[index].img}",
+                      fit: BoxFit.cover,
+                      height: 200,
+                      width: 200,
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 0,
+                    child: Container(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+                        width: 200,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(16),
+                            gradient: LinearGradient(colors: [
+                              Colors.white,
+                              Colors.white60,
+                              Colors.white30,
+                              Colors.white24
+                            ])),
+                        child: Text(
+                          "${artistData[index].name}",
+                          style: TextStyle(fontSize: 20, color: Colors.black),
+                        )),
+                  )
+                ]),
+              ),
             ),
           ),
         ),
