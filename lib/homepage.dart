@@ -3,12 +3,19 @@ import 'package:google_facebook_auth_demo/detais_page.dart';
 import 'package:google_facebook_auth_demo/model/artists_bio.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage({Key? key}) : super(key: key);
+  HomePage({Key? key, required this.title}) : super(key: key);
+  String title;
   List<ArtistsBio> artistData = ArtistsBio.artistsBio();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        title: Text(title),
+      ),
       backgroundColor: Colors.blueGrey,
       body: SafeArea(
         child: GridView.count(
