@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_facebook_auth_demo/login_page.dart';
+import 'package:google_facebook_auth_demo/homepage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const LoginPage(),
+      home: const HomePage(),
     );
   }
 }
