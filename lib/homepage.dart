@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_facebook_auth_demo/detais_page.dart';
 import 'package:google_facebook_auth_demo/model/artists_bio.dart';
 
 class HomePage extends StatelessWidget {
@@ -15,7 +16,13 @@ class HomePage extends StatelessWidget {
           children: List.generate(
             artistData.length,
             (index) => GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DetailsPage(index: index),
+                    ));
+              },
               child: Container(
                 margin: EdgeInsets.all(8),
                 child: Stack(children: [
@@ -36,7 +43,7 @@ class HomePage extends StatelessWidget {
                         width: 200,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(16),
-                            gradient: LinearGradient(colors: [
+                            gradient: const LinearGradient(colors: [
                               Colors.white,
                               Colors.white60,
                               Colors.white30,
