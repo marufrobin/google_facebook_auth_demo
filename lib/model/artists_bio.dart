@@ -43,7 +43,7 @@ In addition to his solo career, Eminem was a member of the hip hop group D12. He
 
 Eminem is among the best-selling music artists of all time, with estimated worldwide sales of over 220 million records. He was the best-selling music artist in the United States of the 2000s and the best-selling male music artist in the United States of the 2010s, third overall. Billboard named him the "Artist of the Decade (2000–2009)". He has had ten number-one albums on the Billboard 200—which all consecutively debuted at number one on the chart, making him the first artist to achieve this[5]—and five number-one singles on the Billboard Hot 100.[6] The Marshall Mathers LP, The Eminem Show, Curtain Call: The Hits (2005), "Lose Yourself", "Love the Way You Lie" and "Not Afraid" have all been certified Diamond or higher by the Recording Industry Association of America (RIAA).[7] Rolling Stone has included him in its lists of the 100 Greatest Artists of All Time and the 100 Greatest Songwriters of All Time. He has won numerous awards, including 15 Grammy Awards, eight American Music Awards, 17 Billboard Music Awards, an Academy Award, a Primetime Emmy Award and an MTV Europe Music Global Icon Award. In November 2022, Eminem was inducted into the Rock and Roll Hall of Fame.[8]"""),
       ArtistsBio(
-          name: "Notorious B.I.G.",
+          name: "Notorious\n B.I.G.",
           birthPlace: 'New York City, U.S.',
           birthDay: "May 21, 1972",
           img: "images/big.jpg",
@@ -70,7 +70,7 @@ One of the world's best-selling music artists, with over 160 million records sol
 West's outspoken views have received significant media coverage; he has been a frequent source of controversy due to his conduct on social media[12] and at awards shows and public settings, as well as his comments on the music and fashion industries, U.S. politics, race, and slavery. His Christian faith, high-profile marriage to Kim Kardashian, and mental health have also been topics of media attention.[13][14] In 2020, West launched an unsuccessful independent presidential campaign that primarily advocated for a consistent life ethic. In 2022, he was widely condemned and lost many sponsors and partnerships—including his collaborations with Adidas, Gap, and Balenciaga—after making a series of antisemitic statements.[15][16] In November 2022, he announced his 2024 presidential campaign, appearing publicly with Nick Fuentes, a white supremacist. He later publicly praised Adolf Hitler, denied the Holocaust, and identified as a Nazi."""),
       ArtistsBio(
           name: "Lil Wayne",
-          birthPlace: 'New Orleans, Louisiana, U.S.',
+          birthPlace: 'New Orleans, Louisiana,\n U.S.',
           birthDay: "September 27, 1982",
           img: "images/Lil Wayne.jpg",
           description:
