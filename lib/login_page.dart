@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_facebook_auth_demo/homepage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -62,7 +63,9 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius: BorderRadius.circular(30)),
                   padding: EdgeInsets.symmetric(vertical: 20)),
               //facebook login button
-              onPressed: () {},
+              onPressed: () {
+                signInWithFacebook(context);
+              },
               icon: Image.asset(
                 "images/fb.png",
                 width: 24,
@@ -80,7 +83,30 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   // Method for Facebook Sign-in
-  Future<void> signInWithFacebook(BuildContext context) async {}
+  Future<void> signInWithFacebook(BuildContext context) async {
+    try {
+      final LoginResult loginResult = await FacebookAuth.instance.login();
+      final OAuthCredential fbAuthCredential =
+          FacebookAuthProvider.credential(loginResult.accessToken!.token);
+      UserCredential userCredential =
+          await auth.signInWithCredential(fbAuthCredential);
+      if (userCredential.user != null) {
+        if (userCredential.additionalUserInfo!.isNewUser) {
+        } else {
+          print("New User:${userCredential.user!.displayName}");
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => HomePage(
+                    imageUrl: "${userCredential.user!.photoURL}",
+                    userName: "${userCredential.user!.displayName}"),
+              ));
+        }
+      }
+    } on FirebaseAuthException catch (e) {
+      print("$context, ${e.message}");
+    }
+  }
 
   // Method for Google Sign-in
   Future<void> signInWithGoogle(BuildContext context) async {
