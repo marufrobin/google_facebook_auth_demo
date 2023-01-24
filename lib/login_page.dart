@@ -1,12 +1,24 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_facebook_auth_demo/homepage.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   LoginPage({
     Key? key,
   }) : super(key: key);
 
   @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  FirebaseAuth auth = FirebaseAuth.instance;
+
+  @override
   Widget build(BuildContext context) {
+    int value = 0;
+
     return Scaffold(
       backgroundColor: Colors.blueGrey,
       body: Container(
@@ -24,7 +36,11 @@ class LoginPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(30)),
                   padding: EdgeInsets.symmetric(vertical: 20)),
               // Google sign in button
-              onPressed: () {},
+              onPressed: () async {
+                print("Google login button pressed...${value++}");
+
+                signInWithGoogle(context);
+              },
               icon: Image.asset(
                 "images/google.png",
                 scale: 30,
@@ -61,5 +77,37 @@ class LoginPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> signInWithGoogle(BuildContext context) async {
+    try {
+      final googleUser = await GoogleSignIn().signIn();
+
+      final googleAuth = await googleUser!.authentication;
+
+      if (googleAuth.accessToken != null && googleAuth.idToken != null) {
+        final credential = GoogleAuthProvider.credential(
+          accessToken: googleAuth.accessToken,
+          idToken: googleAuth.idToken,
+        );
+        UserCredential userCredential =
+            await auth.signInWithCredential(credential);
+        if (userCredential.user != null) {
+          if (userCredential.additionalUserInfo!.isNewUser) {
+          } else {
+            print("Login with user${userCredential.user!.email}");
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => HomePage(
+                      imageUrl: "${userCredential.user?.photoURL}",
+                      userName: "${userCredential.user?.displayName}"),
+                ));
+          }
+        }
+      }
+    } on FirebaseAuthException catch (e) {
+      print("$context, ${e.message!}");
+    }
   }
 }

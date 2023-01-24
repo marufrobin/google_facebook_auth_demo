@@ -2,20 +2,45 @@ import 'package:flutter/material.dart';
 import 'package:google_facebook_auth_demo/detais_page.dart';
 import 'package:google_facebook_auth_demo/model/artists_bio.dart';
 
-class HomePage extends StatelessWidget {
-  HomePage({Key? key, required this.title}) : super(key: key);
-  String title;
+class HomePage extends StatefulWidget {
+  HomePage({Key? key, required this.imageUrl, required this.userName})
+      : super(key: key);
+  String imageUrl;
+  String userName;
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   List<ArtistsBio> artistData = ArtistsBio.artistsBio();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        title: Text(title),
-      ),
+          centerTitle: true,
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          title: Text("Hip-Hop Artist"),
+          actions: [
+            GestureDetector(
+              onTap: () {
+                final snakbar = SnackBar(
+                  content: Text("User Name: ${widget.userName}"),
+                  action: SnackBarAction(
+                    label: "X",
+                    onPressed: () {},
+                  ),
+                );
+                ScaffoldMessenger.of(context).showSnackBar(snakbar);
+              },
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(30),
+                child: Image.network(widget.imageUrl),
+              ),
+            )
+          ]),
       backgroundColor: Colors.blueGrey,
       body: SafeArea(
         child: GridView.count(
