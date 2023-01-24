@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    <string name="app_name">login using firebase</string>
+    <string name="facebook_app_id">5753389844757630</string>
+    <string name="fb_login_protocol_scheme">fb5753389844757630</string>
+    <string name="facebook_client_token">dc10663be9fbfc7d532221e2cce6ad81</string>
+</resources>
