@@ -68,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                 width: 24,
                 height: 24,
               ),
-              label: Text(
+              label: const Text(
                 "LogIn with Facebook",
                 style: TextStyle(fontSize: 16, color: Colors.black),
               ),
@@ -79,6 +79,10 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
+  // Method for Facebook Sign-in
+  Future<void> signInWithFacebook(BuildContext context) async {}
+
+  // Method for Google Sign-in
   Future<void> signInWithGoogle(BuildContext context) async {
     try {
       final googleUser = await GoogleSignIn().signIn();
