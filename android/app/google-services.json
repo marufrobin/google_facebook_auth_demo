@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "591200033430",
+    "project_id": "facebook-login-practice-de80a",
+    "storage_bucket": "facebook-login-practice-de80a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:591200033430:android:09ed0657e2bd6ef59f80b7",
+        "android_client_info": {
+          "package_name": "com.example.google_facebook_auth_demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "591200033430-knteedssh7lmla2dh5mkv6djsub68s19.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.google_facebook_auth_demo",
+            "certificate_hash": "c7547a79ff68e6013c855d20e44a04fc6f233de8"
+          }
+        },
+        {
+          "client_id": "591200033430-6uks3ik896aso08r773kj659itltuut5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgV9Cr8rF7Wxm3JUM65hLWFokjY1pYRJ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "591200033430-6uks3ik896aso08r773kj659itltuut5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
